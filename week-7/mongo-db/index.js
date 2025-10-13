@@ -1,12 +1,13 @@
 import express from 'express'
-import crypto from 'crypto'
-import jwt from 'jsonwebtoken'
 import userRoutes from './routes/user.routes.js'
 import cors from 'cors'
-import Todo from './models/todos.model.js'
-import User from './models/Users.model.js'
 import dotenv from 'dotenv'
 import db from './utils/db.js'
+import crypto from 'crypto'
+import jwt from 'jsonwebtoken'
+import bcrypt from 'bcrypt'
+
+
 
 dotenv.config()
 
