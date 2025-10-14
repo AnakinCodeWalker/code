@@ -5,8 +5,14 @@ const detailHandler = (req, res) => {
 
 
 
-    const { name, email } = users
+    
     const token = req.headers.token
+    
+    if(!token){
+       return res.json({
+      "message": "send the token"
+    })
+    }
     console.log(users)
 
     const User = users.find(u => u.token === token)
@@ -20,8 +26,8 @@ const detailHandler = (req, res) => {
  
 
     return res.json({
-        "name": name,
-        "email": email
+        "name": User.name,
+        "email": User.email
     })
 
 }
