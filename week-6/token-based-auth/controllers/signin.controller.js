@@ -49,6 +49,8 @@ console.log(`name is ${name} mail is ${email}`)
 //  u.name --> is the value inside the object
 //  u.name === name --> the second name is req.body name 
 
+// This line stores a reference to the first user object from the array  whose name and email match the given values.
+
 const userExists = user.find(u => 
     u.name === name && u.email === email
 )
@@ -58,6 +60,10 @@ if(userExists===undefined)
  message: "User does not exist"
  })
 
+ //we have to push the token to the specific user 
+//for that first we have to find the user to whom this  should belong
+
+
 //  1.created the token
  //by using the crypto module here i am creating the token
 
@@ -65,9 +71,7 @@ if(userExists===undefined)
   
 //  2.pushing the token to user object to whom it belongs to
 
-//we have to push the token to the specific user 
-//for that first we have to find the user to whom this  should belong
-
+//this will create a token field on the specific user object
 userExists.token = token
 
 //just consoling log for verification purpose wheather token pushed/not
