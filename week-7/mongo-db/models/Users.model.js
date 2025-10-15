@@ -5,6 +5,7 @@ import mongoose from "mongoose";
 // you can add a object inside the main object of the schema this will this will provide timestamps true  createdAt updatedAt...
 
 const UserSchema = new mongoose.Schema({
+    
     name: {
         type: String,
         required: true
