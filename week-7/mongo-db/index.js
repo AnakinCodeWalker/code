@@ -37,7 +37,9 @@ app.use(cors(
 //connecting to the db
 db()
 
+// u can introduce one more file here for todo related routes right now i  am keeping things as it is..
 app.use("/api/v1/users",userRoutes)
+
 
 //then starting the server
 app.listen(PORT || 8080, () => {

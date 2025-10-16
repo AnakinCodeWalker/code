@@ -1,5 +1,8 @@
 //GET
+// i am leaving this route and moving forward..
 // authenticated endpoint[means u can only access them after u are signed in/authenticated]
+
+//doing auth then providing the specific user detail..
 
 import dotenv from 'dotenv'
 import jwt from "jsonwebtoken"

@@ -21,7 +21,7 @@ const UserSchema = new mongoose.Schema({
     },
 },
     {
-        timestamps: true, // ✅ auto adds createdAt & updatedAt
+        timestamps: true, // auto adds createdAt & updatedAt
     }
 )
 
