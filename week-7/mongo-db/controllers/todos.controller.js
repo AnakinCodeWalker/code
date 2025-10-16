@@ -1,5 +1,4 @@
 //GET
-// i am leaving this route and moving forward..
 // authenticated endpoint[means u can only access them after u are signed in/authenticated]
 
 //doing auth then providing the specific user detail..
@@ -7,10 +6,13 @@
 import dotenv from 'dotenv'
 import jwt from "jsonwebtoken"
 
-dotenv.config
+import Todo from '../models/todos.model'
+
+dotenv.config()
+const SECRET_KEY =process.env.SECRET_KEY
 
 //here you can see your todos
-const todosHandler=(req,res)=>{
+const todosHandler=async (req,res)=>{
 
     // user will give the token and it will return the todos user belong to 
     const token = req.headers.token
@@ -20,10 +22,18 @@ const todosHandler=(req,res)=>{
         "message":"send the token"
     })
    }
+   const verifyUser = jwt.verify(token,SECRET_KEY)
+   const {email ,id} =verifyUser
 
-   //decrypt the toke and find the user and send its token
+   const userTodos = await Todo.findOne({
+    userId:id
+   })
 
-   const decodedInfo =jwt.verify(token,SECRET_KEY)
-
+  return res.status(200).json({
+    message: "Todos fetched successfully",
+    email: email,
+    todos: userTodos
+  })
 }
+
 export default todosHandler
