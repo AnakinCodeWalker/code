@@ -1,5 +1,5 @@
 
- async function signupHandler() {
+ const signupHandler = async ()=> {
     
     
  }

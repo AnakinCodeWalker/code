@@ -1,5 +1,5 @@
 
-async function  loginHandler(){
+const loginHandler =async ()=>{
 
 }
 
