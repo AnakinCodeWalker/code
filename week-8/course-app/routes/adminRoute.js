@@ -1,4 +1,4 @@
-import {Router} from 'mongoose'
+import {Router} from 'express'
 const admin =Router()
 
 admin. post('/signup',signUpHandler)
