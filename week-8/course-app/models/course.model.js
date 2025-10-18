@@ -1,23 +1,31 @@
 import mongoose from "mongoose";
-import { boolean } from "zod";
-
+ 
 const CourseSchema = new mongoose.Schema({
 
-    name: {
+    title: {
         type: String,
         required: true,
         unique: true
+    },
+     description: {
+        type: String,
+        required: true,
+       
     },
     price: {
         type: number,
         required: true
     },
-    purchase: {
-        type: boolean,
-        default: false
+    imageurl:{
+        type:string
+    },
+    creatorId:{
+//put the object id of the admin here
+type:objectId   
+}
 
-    }
-
+},{
+    timestamps:true //adds createdAt / updatedAt
 })
 
 const Course = mongoose.model("Course", CourseSchema)

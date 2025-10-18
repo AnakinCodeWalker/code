@@ -1,34 +1,37 @@
 import mongoose from "mongoose";
 
-const UserModel = new mongoose.Schema({
+const UserSchema = new mongoose.Schema({
 
-    name: {
+    firstName: {
         type: String,
-        default: null,
+        required: true
+    },
+    lastName: {
+        type: String,
         required: true
     },
     email: {
         type: String,
-        default: null,
         unique: true,
         required: true
     },
     password: {
         type: String,
         required: true,
-        unique: true
-    },
-    role: {
-        type: String,
-        enum: ['user', 'admin'],
-        default: 'user'
     }
 
-},{
-    timestamps:true //adds createdAt / updatedAt
+    //you can set up the role as well but  i am creating another model for that here 
+    // role: {
+     
+    //     enum: ['user', 'admin'],
+    //     default: 'user'
+    // }
+
+}, {
+    timestamps: true //adds createdAt / updatedAt
 })
 
-const User = mongoose.model('User', UserModel)
+const User = mongoose.model('User', UserSchema)
 
 export default User
 
