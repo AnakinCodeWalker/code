@@ -1,7 +1,11 @@
 import {Router} from 'express'
-const change =Router()
+const course =Router()
 
-change.post('/purchase',purchaseHandler)
-change.post('')
 
-export default change
+//to purchase a course
+course.post('/purchase',purchaseHandler)
+
+//to get the list of all the purchased courses
+course.get('/preview',coursesHandler)
+
+export default course

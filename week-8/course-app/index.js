@@ -3,7 +3,10 @@ import jwt from 'jsonwebtoken'
 import dotenv from 'dotenv'
 import cors from 'cors'
 import db from './utils/db.js'
-import userRoutes from './routes/userRoutes.js'
+
+import userRoutes from './routes/userRoute.js'
+import courseRoutes from './routes/courseRoute.js'
+import adminRoutes from './routes/adminRoute.js'
 dotenv.config()
 
 const app =express()
@@ -27,7 +30,9 @@ app.use(express.urlencoded({
 }))
 
 
-app.use('/api/v1/users',userRoutes)
+app.use('/api/v1/user',userRoutes)
+app.use('/api/v1/course',courseRoutes)
+app.use('/api/v1/admin',adminRoutes)
 app.get('/',(req,res)=>{
 res.json({
     "message":"everything is fine"
@@ -35,6 +40,7 @@ res.json({
 })
 
 db()
+
 app.listen(PORT||8080,()=>{
     console.log(`app is listening on port ${PORT}`)
 })

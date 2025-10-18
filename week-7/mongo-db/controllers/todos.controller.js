@@ -22,7 +22,7 @@ const todosHandler=async (req,res)=>{
         "message":"send the token"
     })
    }
-   const verifyUser = jwt.verify(token,SECRET_KEY)
+   const verifyUser = jwt.verify(token,SECRET_KEY)model
    const {email ,id} =verifyUser
 
    const userTodos = await Todo.findOne({
