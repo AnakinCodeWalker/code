@@ -1,8 +1,9 @@
 /* Improvements :
 password should be hashed use the bcrypt library 
+
 */
 
-import User from '../models/user.model.js'
+import User from '../../models/user.model.js'
 import jwt from 'jsonwebtoken'
 import dotenv from 'dotenv'
 dotenv.config()
@@ -16,38 +17,42 @@ const loginHandler = async (req, res) => {
     const { firstName, lastName, email, password } = req.body
 
     if (!firstName || !lastName || !email || !password) {
-        return res.status().json({
+        return res.status(403).json({
             "message": "all fields are required"
         })
     }
 
     try {
-        await User.findOne({ //return 1 value or undefined
+     const currentUser =  await User.findOne({ //return 1 value or undefined
             firstName,
             lastName,
             email
         })
 
-    } catch (error) {
+    
+    //token logic
+    const payload = {
+        //finding the current user and using its 
+ id : currentUser.id
+    }
+    const token = jwt.sign(payload, USER_SECRET_KEY)
 
-        return res.status().json({
+
+return res.status(200).json({
+    "message": "User signed up",
+    token
+})
+}
+    
+    catch (error) {
+
+        return res.status(400).json({
             "message": "sign up first !",
             error: error.message
         })
     }
 
-
-    //token logic
-    const payload = {
-
-    }
-    const token = jwt.sign(payload, USER_SECRET_KEY)
-
 }
-
-return res.status().json({
-    "message": "User signed up",
-    token
-})
+    
 
 export default loginHandler

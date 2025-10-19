@@ -3,7 +3,7 @@ Imprivements todo add
 -->  the bcrypt for password hashing
 -->   add zod for  validation
 */
-import User from "../models/user.model.js"
+import User from "../../models/user.model.js"
 const signupHandler = async (req, res) => {
 
     const { firstName, lastName, email, password } = req.body

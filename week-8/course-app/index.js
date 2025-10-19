@@ -4,8 +4,8 @@ import cors from 'cors'
 import db from './utils/db.js'
 
 import userRoutes from './routes/userRoute.js'
-import courseRoutes from './routes/courseRoute.js'
-import adminRoutes from './routes/adminRoute.js'
+// import courseRoutes from './routes/courseRoute.js'
+// import adminRoutes from './routes/adminRoute.js'
 
 dotenv.config()
 
@@ -30,9 +30,9 @@ app.use(express.urlencoded({
 }))
 
 
-app.use('/api/v1/user', userRoutes)
-app.use('/api/v1/course', courseRoutes)
-app.use('/api/v1/admin', adminRoutes)
+app.use('/api/v1/users', userRoutes)
+// app.use('/api/v1/course', courseRoutes)
+// app.use('/api/v1/admin', adminRoutes)
 
 app.get('/', (req, res) => {
     res.json({

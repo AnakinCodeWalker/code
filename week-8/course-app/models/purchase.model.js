@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 const PurchaseScehma =new mongoose.Schema({
 userId:{
     type:objectId,
+    
 },
 courseId:{
     type:objectId
