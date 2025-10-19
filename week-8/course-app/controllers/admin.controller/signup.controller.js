@@ -37,7 +37,7 @@ const signUpHandler = async (req, res) => {
                 newAdmin: newAdmin
             })
         } catch (err) {
-            return res.status().json({
+            return res.status(403).json({
                 "message": "something went wrong !",
                 error: err.message
             })

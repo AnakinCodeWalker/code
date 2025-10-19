@@ -29,7 +29,11 @@ const loginHandler = async (req, res) => {
             email
         })
 
-    
+    if(!currentUser){
+        return res.json({
+            "message":"signup first"
+        })
+    }
     //token logic
     const payload = {
         //finding the current user and using its 
@@ -47,7 +51,7 @@ return res.status(200).json({
     catch (error) {
 
         return res.status(400).json({
-            "message": "sign up first !",
+            "message": "something went wrong !",
             error: error.message
         })
     }
