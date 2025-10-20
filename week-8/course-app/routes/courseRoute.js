@@ -1,11 +1,12 @@
-// import {Router} from 'express'
-// const course =Router()
+import {Router} from 'express'
+const course =Router()
 
+import purchaseCourseHandler from '../controllers/user.controller/purchases.controller'
+import previewCourseHandler from '../controllers/course.controller/preview.controller'
+//to purchase a course
+course.post('/purchase',purchaseCourseHandler)
 
-// //to purchase a course
-// course.post('/purchase',purchaseHandler)
+//to get the list of all the purchased courses
+course.get('/preview',previewCourseHandler)
 
-// //to get the list of all the purchased courses
-// course.get('/preview',coursesHandler)
-
-// export default course
+export default course

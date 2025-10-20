@@ -8,7 +8,9 @@ const router =Router()
 router. post('/signup',signUpHandler)
 router.post('/signin',loginHandler)
 
-//to see all [users] my purchased courses 
-// router.post('/purchases',purchasesHandler)
+//user can see all his purchased courses
+//to see all [users] my purchased courses
+
+router.post('/purchases',purchasesHandler)
 
 export default router
