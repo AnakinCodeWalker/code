@@ -1,5 +1,5 @@
 import User from "../models/User.model";
-
+import bcrypt from 'bcrypt'
 const signupHandler = async (req, res) => {
 
     const { name, password, email } = req.body
@@ -10,6 +10,7 @@ const signupHandler = async (req, res) => {
         })
     }
     try {
+        
         const findUser = await User.findOne({
             name,
             password,
@@ -22,8 +23,8 @@ const signupHandler = async (req, res) => {
             })
         }
     } catch (err) {
-
-        const newUser = await User.create({ name, email, password })
+const hashedPassword = await bcrypt.hash(password,10)
+        const newUser = await User.create({ name, email, password : hashedPassword })
 
         if (!newUser) {
             return res.json({
@@ -31,6 +32,7 @@ const signupHandler = async (req, res) => {
                 err: err.message
             })
         }
+        console.log(newUser);
         return res.json({
             "message": "user signed up",
             newUser

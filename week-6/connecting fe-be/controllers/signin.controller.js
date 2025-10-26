@@ -1,6 +1,7 @@
 import User from "../models/User.model";
 import jwt from 'jsonwebtoken'
 import dotenv from 'dotenv'
+
 import bcrypt from 'bcrypt'
 dotenv.config()
 
@@ -22,6 +23,16 @@ const signinHandler =async (req,res)=>{
     "message":"sign up first"
 })
 
+//compare the passwords as well [original and the hashed password]
+
+    const isMatch = await bcrypt.compare(password, findUser.password)
+    
+    if (!isMatch) {
+      return res.status(401).json({
+         message: "Invalid password."
+         })
+    }
+
 const payload ={
     id: findUser._id
 }
@@ -34,7 +45,7 @@ user:{
     name:findUser.name,
  email :findUser.email
 }, 
- token
+ token  //returning the token
 })
 }catch(err){
 return res.status(500).json({
