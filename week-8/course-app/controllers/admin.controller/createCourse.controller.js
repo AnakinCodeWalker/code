@@ -21,7 +21,8 @@ const course = await Course.create({
 creatorId:adminId
 })
 
-return res.status(200).json({"meesage":"course created successfully",
+return res.status(200).json({
+    "meesage":"course created successfully",
     courseId : course.id
 })
 }
