@@ -4,6 +4,7 @@ import Course from "../../models/course.model"
 app.use(authAdminMiddleware)
 const createCourseHandler =async (req,res)=>{
 
+    //this will have the admin id userId is paassed from the middleware in middleware it was passed from the 
     const adminId=req.userId 
 const {title,description, imageurl, price}=req.body    
 

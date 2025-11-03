@@ -37,7 +37,7 @@ const loginHandler = async (req, res) => {
     //token logic
     const payload = {
         //finding the current user and using its 
- id : currentUser.id
+ id : currentUser._id
     }
     const token = jwt.sign(payload, USER_SECRET_KEY)
 
@@ -50,8 +50,8 @@ return res.status(200).json({
     
     catch (error) {
 
-        return res.status(400).json({
-            "message": "something went wrong !",
+        return res.status(403).json({
+            "message": "signin failed !",
             error: error.message
         })
     }

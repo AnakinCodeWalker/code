@@ -30,18 +30,18 @@ const loginHandler = async (req, res) => {
         }
 
         const payload = {
-            id: findAdmin.id
+            id: findAdmin._id
         }
         const token = jwt.sign(payload, ADMIN_SECRET_KEY)
-        return res.json({
+        return res.status(200).json({
             "message": "admin logged in",
             token: token
         })
 
     } catch (err) {
 
-        return res.json({
-            "message": "something went wrong",
+        return res.status(403).json({
+            "message": "signin failed",
             err: err.message
         })
     }

@@ -18,7 +18,7 @@ const signUpHandler = async (req, res) => {
         })
 
         if (FindUser) {
-            return res.status.json({
+            return res.status(403).json({
                 "message": "Admin already signedUp"
             })
         }
@@ -32,13 +32,13 @@ const signUpHandler = async (req, res) => {
                 password
             })
 
-            return res.json({
+            return res.status(200).json({
                 "message": "Admin signed up",
                 newAdmin: newAdmin
             })
         } catch (err) {
             return res.status(403).json({
-                "message": "something went wrong !",
+                "message": "signup failed!",
                 error: err.message
             })
         }

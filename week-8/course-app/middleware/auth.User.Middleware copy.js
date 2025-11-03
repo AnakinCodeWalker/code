@@ -9,6 +9,7 @@ const decoded = jwt.verify(token, USER_SECRET_KEY)
 const authUserMiddleware = (req, res, next) => {
 
     if (token) {
+        // here the .id is from the  payload [token]
         req.userId = decoded.id
         next()
     }
