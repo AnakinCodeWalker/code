@@ -8,8 +8,8 @@ const createCourseHandler =async (req,res)=>{
     const adminId=req.userId 
 const {title,description, imageurl, price}=req.body    
 
-if(title||description|| imageurl||price){
-    return res.json({
+if(!title||!description|| !imageurl|| !price){
+    return res.status(403).json({
         "message":"All details are required"
     })
 }
@@ -24,12 +24,12 @@ creatorId:adminId
 
 return res.status(200).json({
     "meesage":"course created successfully",
-    courseId : course.id
+    courseId : course._id
 })
 }
 catch(err){
 return res.status(403).json({
-    "message":"can not create the course",
+    "message":"course not created",
     err:err.message
 })
 }
