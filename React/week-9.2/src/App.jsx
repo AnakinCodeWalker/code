@@ -1,7 +1,11 @@
 
 import './App.css'
+import NotificationCount from './Components/NotificationCount'
+
+
 // import { Post } from './Components/Post'
-import UseStateHook from './Components/UseStateHook'
+// import UseStateHook from './Components/UseStateHook'
+
 function App() {
   return(
     <div>
@@ -11,7 +15,9 @@ function App() {
             Age = "19"
             />  {/*Prop passed */}
 
-            <UseStateHook></UseStateHook>
+            {/* <UseStateHook></UseStateHook> */}
+
+            <NotificationCount Name ={"Prince"}></NotificationCount>
           </div>
     </div>
   )
