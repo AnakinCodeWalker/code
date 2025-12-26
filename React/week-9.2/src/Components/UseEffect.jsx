@@ -11,6 +11,7 @@ function UseEffect(){
         borderRadius:10,
         width:400
         }}>
+
     <div style={{
        backgroundColor:"grey",
         height:"300px",
@@ -21,6 +22,7 @@ function UseEffect(){
         justifyContent:"center",
         alignItems:"center"
     }}>
+        
         <div style={{
             backgroundColor:"red",
             width:50,
@@ -30,6 +32,7 @@ function UseEffect(){
             margin:10
         }}> hi</div>
         
+        
         <div style={{
             backgroundColor:"pink",
             width:50,
@@ -38,6 +41,7 @@ function UseEffect(){
             textAlign:"center"
         }}> hi2</div>
     </div>
+    
     
     
     <div style={{
