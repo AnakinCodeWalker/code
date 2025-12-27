@@ -41,14 +41,14 @@ import { useEffect } from "react"
 
 //  use all 3 show without and with UseEffect cosequences..
 
-function UseEffect(){
+ function UseEffect(){
 
 
     const [count , SetCount] = useState(0)
-function setValue(){
+ function setValue(){
     SetCount(count+1)  //weird behaviour of the code 
 }
- setInterval(setValue,1000) 
+ const Timer = setInterval(setValue,1000) 
 
 
 //  the useEffect hook 
@@ -62,7 +62,9 @@ function setValue(){
     //    wrap the sideeffect inside the useEffect  so it will run only one time
     
     return () => { //cleanup Code for useEffect.
-           
+        
+        clearInterval(Timer)
+        
           }
         }, [])  //dependency array{if u want to use a state varaible inside a Useeffect put them into the dependency array}
 
@@ -70,7 +72,10 @@ function setValue(){
 
 useEffect(()=>{
 
-return ()=>{
+return ()=>{   //cleanup function 
+
+
+
 console.log(`will re run each time the value of varaible changes ${count}`);
 }
 
