@@ -1,22 +1,34 @@
-import {BrowserRouter, Routes , Route, Link} from "react-router-dom" 
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom"
 import './App.css'
 import Home from "./components/Home"
+import About from "./components/About"
+import Layout from "./components/Layout"
 function App() {
 
   return (
-  <>
-  <BrowserRouter>
-<Link to="/home">Home</Link>
+    <>
+      <BrowserRouter>
+        <Link to="/home">Home</Link>
+        <Link to="/about me" style={{
+          margin: 10
+        }}>
+          About me
+        </Link>
 
-  <Routes >
+        <Routes >
 
-<Route  path='/home'  element={<Home> </Home>}>
+          <Route path="/" element={<Layout></Layout>}>
 
-</Route>
+            <Route path='/home' element={<Home> </Home>}>
+            </Route>
 
-  </Routes>
-  </BrowserRouter>
-  </>
+            <Route path='/about me' element={<About></About>}></Route>
+
+          </Route>
+
+        </Routes>
+      </BrowserRouter>
+    </>
   )
 }
 
