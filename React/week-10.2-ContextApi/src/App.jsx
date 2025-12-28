@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './App.css'
-
+import PropDrilling from './component/PropDrilling'
 // THIS IS ROLLING UP THE STATE.
 
 // usually props are passed from parent to child.
@@ -15,6 +15,7 @@ function App() {
 
   return <div>
     <LightBulb />
+    <PropDrilling/>
   </div>
 }
 
