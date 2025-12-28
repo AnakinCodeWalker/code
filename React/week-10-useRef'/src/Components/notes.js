@@ -7,4 +7,18 @@ useref is a react hook that lets you
 
 4. you always Access/changes the value using 
  .current  -->  { refrence variable.current }
+
+
+
+ it lets you
+
+ -> Store previous values
+
+-> Store timers / intervals
+
+-> Access DOM elements
+
+-> Count renders
+
+-> Avoid unnecessary re-renders
 */
