@@ -12,7 +12,7 @@ function Counter() {
 
   function startClock() {
     // this return a variable that can be used to clear the interval 
-    let value = setTimeout(timeOut, 1000)
+    let value = setInterval(timeOut, 1000)
     setTimer(value) //using this varaible to clear the interval.
   }
 
@@ -21,15 +21,17 @@ function Counter() {
   }
 
   function timeOut() {
-    setCount(count + 1)
+    setCount(count=>count + 1)
   }
 
   return (
     <>
 
       {count}
-      <button onClick={startClock}>Increase</button>
-      <button onClick={stopClock}>Decrease</button>
+      <button onClick={startClock}style={{
+        margin:10
+      }}>start</button>
+      <button onClick={stopClock}>stop</button>
     </>
   )
 
