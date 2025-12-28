@@ -17,12 +17,13 @@ function App() {
 
         <Routes >
 
-          <Route path="/" element={<Layout></Layout>}>
-
-            <Route path='/home' element={<Home> </Home>}>
+{/* if you have something like /neet in the main Route you have to put /neet in the children as well  */}
+          <Route path="/neet" element={<Layout></Layout>}>
+{/* this will make consistency ki ha sirf /neet wale related routes hi u could access */}
+            <Route path='/neet/home' element={<Home> </Home>}>
             </Route>
 
-            <Route path='/about me' element={<About></About>}></Route>
+            <Route path='/neet/about me' element={<About></About>}></Route>
 
           </Route>
 
