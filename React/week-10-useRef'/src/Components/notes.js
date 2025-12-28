@@ -1,4 +1,7 @@
 /*
+DOM -> usRef
+UI  -> useState
+
 useref is a react hook that lets you
 1.let you store a value that does not cause re render when its value changed[changing values does not cause re render and it persists the value while re renders]
 2.Lets you access the dom directly
@@ -21,4 +24,7 @@ useref is a react hook that lets you
 -> Count renders
 
 -> Avoid unnecessary re-renders
+
+A component is considered mounted when it is rendered and added to the DOM;
+
 */
