@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import ContextApi from './component/ContextApi'
 import './App.css'
-
+import { createContext } from "react"
 // for propDrilling...
 // import PropDrilling from './component/PropDrilling'
 
@@ -16,12 +16,25 @@ import './App.css'
 
 
 // rolling up the state or prop drilling
-function App() {
 
+
+// 1. context api
+const BulbContext = createContext()
+function App() {
+const [bulb,setBulb]=useState(false)
   return <div>
     <LightBulb />
                {/* <PropDrilling/> */}
+    
+    {/* 2. wrapping up the component with the createContext() */}
+ <BulbContext.Provider value={{
+  bulb:bulb,
+  setBulb:setBulb
+ }}> {/* u also define ki kya access / bhejna hai to the childrens  */}
+  {/* now all the children to this component will get the access. to the context */}
     <ContextApi></ContextApi>
+ </BulbContext.Provider>
+  
   </div>
 }
 
