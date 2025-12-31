@@ -1,11 +1,18 @@
+// to access the class variable insid the method use this keyword
+
+
 // type or interface are almost same , bs syntax thora sa alg hai or isko implement nhi kr skte hai interface ko kr skte hai 
 
+// u  can implement interface but can not do the same in types
 //interface dont have union and intersections[iisi mai union intersection niche hai]
 // at root level u can not use the [ union | ]  like u can in type but inside of interface u can do that for  a variable 
 
 
 //type ka type mai interface ko use kr skte hai 
 
+interface name{
+details:lord
+}
 type lord= {  // type or object ka syntax same hai bs type likhna prta hai aage
     name :String,
     status :god // type mai interface ka use 
