@@ -13,6 +13,11 @@ let c :number=0
 
 console.log(sum(c))
 
+//  Anonymous Functions
+
+// When a function appears in a place where TypeScript can determine how it’s going to be called, the parameters of that function are automatically given types. This process is called contextual typing because the context that the function occurred within informs what type it should have.
+
+
 
 //interfaces
 
@@ -91,3 +96,43 @@ const userDetail:UserDetail={
 fullName:"kallu"
 }
 console.log(userDetail);
+
+/*
+Type Assertions : you tell the ts compiler trust me 
+
+ -> Use type assertion only when TS can’t know
+ -> Like a type annotation, type assertions are removed by the compiler and won’t affect the runtime behavior of your code.
+ */
+const myCanvas = document.getElementById("main_canvas") as HTMLCanvasElement;  //you know ki canvasElement hoga so u changed it
+// ts ko pta hai koi element hoga but not specifically
+
+
+/*
+ u could use 2 assertions as well.
+
+ const animal = expr as any as T;
+*/
+
+
+// u could provide a literal as a return type for a function as well.
+function num():1|2{
+    return 1;
+}
+
+// remove null  and undefined without performing type narrowing
+/*
+
+The non-null assertion operator tells TypeScript to ignore null and undefined checks, but it does not add any runtime safety
+
+*/
+function liveDangerously(x?: number | null) {
+  // No error
+  console.log(x!.toFixed()); // this could possible give runtime error
+}
+
+/*
+when strictNullChecks: true ,
+
+null and undefined are NOT allowed unless explicitly mentioned
+
+*/
