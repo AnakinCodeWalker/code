@@ -120,3 +120,41 @@ const owner:god={
     // age:"infinite" 
 }
     */
+
+/*
+you could extend an interface but not type [can be done indirectly.]
+*/
+
+type window ={
+     title : string
+} &{
+    ts: "kabir"; 
+}
+
+const name :window = {
+    title : "monk who drink",
+    ts  : "kabir"
+}
+
+console.log("extending a type : " + name.title);
+
+interface smallWindow{
+    title:string
+}
+
+//  u could modify or add property to the interface after creating it.
+// its not possible in type
+interface smallWindow{
+    size ?: "xl"|"m"|"l"
+} 
+interface bigWindow extends smallWindow{
+    ts : "kabir"
+}
+const windowObj: bigWindow = {
+  title: "My App",
+  ts: "kabir",
+};
+console.log("exntending an interface"+ windowObj.ts+""+windowObj.title);
+
+
+
