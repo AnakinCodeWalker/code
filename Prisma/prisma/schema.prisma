@@ -1,7 +1,30 @@
 generator client {
   provider = "prisma-client"
 }
+model User {
+  id Int @id  @default(autoincrement())
+  username   String   @unique
+  password   String
+  firstName  String
+  lastName   String?
+  email      String? @unique // null values are allwoed in the unique field
+   @@index([email])        // indexes are for searching purpose
+  posts Todos[]
+}
 
+model Todos{
+  id  Int @id  @default(autoincrement())
+  title  String
+  description String
+  done     Boolean @default(false)   // default takes values or args a
+
+
+//  this table refrences to the User table
+  userId Int
+  user  User @relation(fields: [userId], references: [id])
+//userId refer to the id in the User table
+
+}
 datasource db {
   provider = "postgresql"
 }
