@@ -1,5 +1,5 @@
 generator client {
-  provider = "prisma-client"
+  provider = "prisma-client-js"
 }
 model User {
   id Int @id  @default(autoincrement())
@@ -28,3 +28,19 @@ model Todos{
 datasource db {
   provider = "postgresql"
 }
+
+
+/*
+1.we write the model 
+2.genrate the migration
+3.create a prisma client so our node application can use the method on it
+
+*   prisma client
+ -> A type-safe query builder
+ -> Generated at build time 
+ -> Talks to DB using SQL under the hood
+
+
+ anytime u make a change in the prisma Schema file
+ u have to run the migration command and the genrate the client 
+*/
