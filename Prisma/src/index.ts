@@ -1,33 +1,37 @@
+import "dotenv/config";
 import { PrismaClient } from "@prisma/client";
 
-const prisma = new PrismaClient()
+const prisma = new PrismaClient({
+  datasources: {
+    db: {
+      url: process.env.DATABASE_URL!,
+    },
+  },
+});
 
-
-interface detials {
-       username: string,
-    password: string,
-    firstName: string,
-    email: string
-}
-async function main(detials:detials) {
-    const user =await prisma.user.create({
-        // @ts-ignore
-        data: {
-     username: detials.username,
-    password: detials.password,
-    firstName: detials.firstName,
-    email: detials.email
-    }
-    })
-    console.log(user);
+interface Details {
+  username: string;
+  password: string;
+  firstName: string;
+  email: string;
 }
 
+async function main(details: Details) {
+  const user = await prisma.user.create({
+    data: {
+      username: details.username,
+      password: details.password,
+      firstName: details.firstName,
+      email: details.email,
+    },
+  });
 
+  console.log(user);
+}
 
 main({
   username: "prince",
   password: "123",
   firstName: "Prince",
   email: "prince@gmail.com",
-})    
-
+});
