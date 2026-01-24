@@ -6,15 +6,13 @@ const wss = new WebSocketServer({port: 3000})
 
 // wss is for the server  , ws is for a single client..
 wss.on("connection",(Socket : WebSocket)=>{
-    console.log(`connected to the client`);
-
-
-Socket.on("message",(msg : JSON | string)=>{
- const data = JSON.parse(msg.toString());
+console.log(`client connected ..`);
+Socket.on("message",(msg :  string)=>{
+ const data = msg.toString();
     console.log(data);
 
 
-Socket.send("hello from server")
+Socket.send("Pong")
 })
 
 
@@ -60,3 +58,18 @@ Socket.on("close", () => {
    Meaning: connection fully open hai
  
    */
+
+
+   /*
+    how do you scale a webSocket ..
+     
+    in real world cases we have a fleet of servers , not a single server  
+
+    will increase or decrease the server as the load increase or decreases..
+     as they are stateless  , http servers can be scalled up and down 
+
+    -> most of time the ws server are not stateless/ statefull 
+    
+    you could use , pub sub to scale them ..
+    
+    */

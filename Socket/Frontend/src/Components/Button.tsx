@@ -1,5 +1,5 @@
 
-const ButtonComponent = () => {
+const ButtonComponent = ({socket}) => {
     return (
         <>
             <div>
@@ -19,7 +19,7 @@ const ButtonComponent = () => {
                 marginTop: 5,
                 padding: 7
             }} onClick={function () {
-
+socket.send("ping")
             }}>Click me</button>
         </>
     )
