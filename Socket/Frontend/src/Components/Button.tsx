@@ -1,5 +1,8 @@
 
-const ButtonComponent = ({socket}) => {
+const ButtonComponent = ({socket}:{socket:WebSocket|null}) => {
+  
+    //  another example fro this one
+    //   { name, age }: { name: string; age: number }
     return (
         <>
             <div>
@@ -19,8 +22,13 @@ const ButtonComponent = ({socket}) => {
                 marginTop: 5,
                 padding: 7
             }} onClick={function () {
-socket.send("ping")
-            }}>Click me</button>
+                
+                if(socket==null)
+                    return
+
+                socket.send("ping")
+
+}}>Click me</button>
         </>
     )
 }
