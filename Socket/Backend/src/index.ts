@@ -7,11 +7,13 @@ const wss = new WebSocketServer({port: 3000})
 // wss is for the server  , ws is for a single client..
 wss.on("connection",(Socket : WebSocket)=>{
 console.log(`client connected ..`);
+
+//  will run jb frontend se msg aayega
 Socket.on("message",(msg :  string)=>{
  const data = msg.toString();
     console.log(data);
 
-
+// this will go the client as data
 Socket.send("Pong")
 })
 

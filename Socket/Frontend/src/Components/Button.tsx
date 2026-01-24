@@ -26,6 +26,7 @@ const ButtonComponent = ({socket}:{socket:WebSocket|null}) => {
                 if(socket==null)
                     return
 
+                // this will go to the server as data.
                 socket.send("ping")
 
 }}>Click me</button>

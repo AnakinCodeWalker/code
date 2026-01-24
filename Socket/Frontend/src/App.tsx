@@ -10,7 +10,9 @@ function App() {
    const ws = new WebSocket("ws://localhost:3000")
    
 
-  ws.onmessage=(env)=>{
+
+// will run jb backend se data aayega 
+   ws.onmessage=(env)=>{
 alert(env.data)
   }
 
