@@ -1,4 +1,4 @@
-FROM node:18
+FROM node:18-alpine
 
 WORKDIR  /workdir/app
 
@@ -40,3 +40,6 @@ CMD [ "node","index.js" ]
 
     #  .Dockerignore App/node_modules
     # COPY App/package.json ./
+
+
+    # copy all code file will changee also accordingly 
