@@ -1,0 +1,42 @@
+FROM node:18
+
+WORKDIR  /workdir/app
+
+# you can specify the absolute path or do . or ./ --> works same 
+# if dockerfile and json are in diffrent folder specify the path
+COPY package-lock.json   ./
+
+COPY  package.json ./
+
+RUN npm install
+
+COPY . .
+
+# this will run inside the container /workdir/app
+#   will always work fine for all cases
+
+CMD [ "node","index.js" ]
+
+
+# without nested structure means dockerfile and package code are in same folder
+
+# COPY package.json  ./
+# .Dockerignore node_modules
+#  App/
+#   ├── Dockerfile
+#   ├── .dockerignore
+#   ├── package.json
+#   └── package-lock.json
+
+
+# 2 . 
+#  if the host has nested folder structure , you have to specify the path and docker and node are in diffrent folders
+# project-root/
+#  ├── Dockerfile
+#  ├── .dockerignore
+#  └── App/
+    #   ├── package.json
+    #   └── package-lock.json
+
+    #  .Dockerignore App/node_modules
+    # COPY App/package.json ./
