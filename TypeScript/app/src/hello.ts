@@ -238,3 +238,56 @@ enum status{
 // composition in classes.. 
 // index signatures
 //  readonly , pick , omit , partial 
+
+
+
+
+
+
+//  to create objects
+
+//  1.
+const scores: Record<string, number> = {
+  math: 90,
+  science: 95,
+};
+
+
+// 2.
+
+
+const y :object ={
+"name": 12,
+}
+
+
+//  3.  
+type keyValuePair={
+
+    [id:string ]: any,
+
+}
+
+let objects : keyValuePair= {
+ "1" : 123 ,
+
+ "11" : "121" ,
+
+ "111": 1,
+}
+
+
+console.log(objects["1"]);
+
+
+//  4. via interface 
+
+interface UserRole {
+  id: number;
+  firstname: string;
+}
+
+const userRole: UserRole = {
+  id: 1,
+  firstname: "Harish",
+};
