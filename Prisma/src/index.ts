@@ -13,6 +13,7 @@ interface Details {
   username: string;
   password: string;
   firstName: string;
+  lastName : string,
   email: string;
 }
 
@@ -22,6 +23,7 @@ async function main(details: Details) {
       username: details.username,
       password: details.password,
       firstName: details.firstName,
+      lastName:details.lastName ,
       email: details.email,
     },
   });
@@ -33,5 +35,6 @@ main({
   username: "prince",
   password: "123",
   firstName: "Prince",
+  lastName : "kumar",
   email: "prince@gmail.com",
 });
