@@ -44,6 +44,6 @@
     "esModuleInterop": true,
    
   },
-    "include": ["src"],
+    "include": ["src", "../restOperator.js"],
   "exclude": ["node_modules", "dist"]
 }
