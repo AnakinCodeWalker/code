@@ -6,6 +6,43 @@ datasource db {
   provider = "postgresql"
 }
 
+// one to one relationship
+
+// optional ?  and mandatory
+
+// jis side mai foriegn key hoga relation v udhar hi likhenge
+// other side se refrencing krna is optional 
+ 
+ /*
+ model User{
+  id String @id @default(uuid())
+  userName String @unique
+  profile Profile?  // doind this is not mandatory u can remove this line as well (recommended)
+}
+
+model  Profile{
+  id String @id @default(uuid())
+  userId  String @unique             // for a one to one relationship it must be unique 
+  
+  author User @relation(fields: [userId]  , references: [id])
+
+}
+*/
+
+//   one to many
+/*
+model User {
+  id  String @id @default(uuid())
+  name String
+ post Posts[]
+} 
+model Posts{
+id String @id @default(uuid())
+userId String                       // for one to one it should not be  unique
+user User @relation(fields: [userId] , references: [id])
+}
+*/
+
 model User {
   id Int @id  @default(autoincrement())
   username   String   @unique
