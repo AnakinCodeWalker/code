@@ -264,14 +264,14 @@ const y :object ={
 //  3.  
 type keyValuePair={
 
-    [id:string ]: any,
+    [id:string ]: number,
 
 }
 
 let objects : keyValuePair= {
  "1" : 123 ,
 
- "11" : "121" ,
+ "11" : 1 ,
 
  "111": 1,
 }
