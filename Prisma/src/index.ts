@@ -1,14 +1,6 @@
-import "dotenv/config";
 import { PrismaClient } from "@prisma/client";
 
-const prisma = new PrismaClient({
-  datasources: {
-    db: {
-      url: process.env.DATABASE_URL!,
-    },
-  },
-});
-
+export const prisma = new PrismaClient();
 interface Details {
   username: string;
   password: string;
@@ -38,3 +30,13 @@ main({
   lastName : "kumar",
   email: "prince@gmail.com",
 });
+/*
+if you use iclude then parent ka pura data aa jyega
+parent  -- full , chilf -- included only .
+*/
+
+/*
+
+Unlike set: null, unset removes the list entirely.
+
+*/
