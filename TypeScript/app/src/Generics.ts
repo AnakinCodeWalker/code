@@ -16,7 +16,7 @@ generic1<number>(2); // even if you dont write <number> just by looking at param
 function generic<T,U>(x:T,y:U){
 console.log(typeof x +""+ typeof y);
 }
-console.log(generic("1",2));
+generic("1",2)
 
 
 // Arrow function
@@ -33,8 +33,7 @@ const arrow2 =<T,U>(num1:T,num2:U):void=>{
  
     console.log(`${num1}${num2}`);
 }
-console.log(arrow2("1",2));
-
+arrow2("1",2)
 // interface
 
 // function num <T>(num1:T):T{return num1}
@@ -82,7 +81,7 @@ interface user{
 }
 
 const greet: user = (value) => {
-  return "Hello " + value;
+  console.log("Hello " + value);
 };
 
 //  (name: Type): ReturnType
