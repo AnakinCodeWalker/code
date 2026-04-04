@@ -2,14 +2,21 @@
 import './App.css'
 import Counter from './Components/Counter'
 import UseRef from './Components/UseRef'
+import usePost from './hooks/usePost'
 
 
+const App = () => {
+  const { post, loading } = usePost()
 
- const App = () => {
   return (
     <div>
-<Counter></Counter>
-<UseRef></UseRef>
+     <p>
+       {post?.title}
+      {loading}
+     </p>
+      <Counter></Counter>
+      <UseRef></UseRef>
+
     </div>
   )
 }
