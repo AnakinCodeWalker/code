@@ -1,3 +1,12 @@
+
+
+//  create a queryCLient and wrap the main component into Queryclientprovider
+
+//  useQueryclient for invalidate queries 
+
+
+
+
 // items-center = cross axis justify-center = main axis
 
 
